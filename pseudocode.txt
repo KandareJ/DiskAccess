@@ -1,0 +1,22 @@
+if (bluetooth.exercising) {
+    read data coming in and write to sd card
+}
+else if (bluetooth.transferring) {
+    get size of data that needs to be sent
+    while (all data not passed) {
+        read sector from sd card
+        write data to specific characteristic that phone will be monitoring
+    }
+}
+else {
+    discard data coming in
+}
+
+bluetooth:
+ ________________
+| BACPAC service |
+| -------------- |
+| - exercising   |
+| - transferring |
+| - channel      |
+ ----------------
