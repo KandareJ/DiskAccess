@@ -1,13 +1,14 @@
 #ifndef DISKACCESS_H
 #define DISKACCESS_H
-/*
+
 #include <ti/drivers/SD.h>
+#include <xdc/runtime/System.h>
 #include "Board.h"
-*/
+
 
 // comment out these lines below when putting on board
-#include "SDRaw.h"
-#define Board_SD0 0
+//#include "SDRaw.h"
+//#define Board_SD0 0
 // =======================================================
 
 struct SDCard
@@ -28,8 +29,15 @@ struct SDCard card;
 // initializes sd card
 int da_initialize();
 
+int da_get_read_pos();
+int da_get_write_pos();
+int da_get_sector_size();
+int da_get_num_sectors();
+
 //free txn buffer
 int da_destructor();
+
+int da_clear();
 
 // load SD card info into SD struct
 int da_load();
